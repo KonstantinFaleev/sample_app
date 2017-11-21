@@ -1,24 +1,42 @@
-# README
+Система контроля версий
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+Git - распределённая система управления версиями. Проект был создан Линусом Торвальдсом для управления разработкой ядра Linux, первая версия выпущена 7 апреля 2005 года. На сегодняшний день его поддерживает Джунио Хамано. Git поддерживает быстрое разделение и слияние версий, включает инструменты для визуализации и навигации по нелинейной истории разработки. Как и Darcs, BitKeeper, Mercurial, Bazaar и Monotone, Git предоставляет каждому разработчику локальную копию всей истории разработки, изменения копируются из одного репозитория в другой.
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+Установка
 
-* Database initialization
+Под Windows или под Linux:
+sudo apt-get update
+sudo apt-get install git
+1 шаг: открываем терминал и устанавливаем первоначальные конфигурации
 
-* How to run the test suite
+git config --global user.name 'имя_пользователя_github'
+git config --global user.email 'ваша_электронная_почта'
+git config --global color.diff 'auto'
+git config --global color.status 'auto'
+git config --global color.branch 'auto'
+git config --global credential.helper store
+git config --global push.default simple
+git config --global core.autocrlf false
+git config --global core.eol lf
+2 шаг: клонируем репозиторий
 
-* Services (job queues, cache servers, search engines, etc.)
+mkdir C:/develop/ #cоздаем папку на диске C (если Windows)
+git clone https://github.com/user/title-repository # копируем свой репозиторий на компьютер
+cd title-repository/ #заходим в локальный репозиторий
+3 шаг: обновляем изменения на гитхабе
 
-* Deployment instructions
+# производим изменения
+# git отслеживает только изменения в файлах
+# (создание, удаление, редактирование)
+# git не видит созданную пустые директории
+# чтобы директории были сохранены на сервере
+# в пустых директориях необходимо присутствие
+# новых, созданных или перемещенных в них файлов
 
-* ...
+git add . #производится индексирование файлов на предмет изменения в них
+git commit -m "update" #фиксируем публикацию, комментируем изменения
+git push -f #отправляем на сервер GitHub

@@ -24,3 +24,6 @@
 # IntellijIdea files
 *.iml
 .idea
+
+# Ignore uploaded test images.
+/public/uploads
